@@ -112,34 +112,36 @@ class GroceryListArray implements IGroceryList {
   }
 
 @Override
-	// ->
-	// Returns the total quantity of items marked
+ // ->
+ // Returns the total quantity of items marked
   public int totalQuantity() {
-	// TODO Auto-generated method stub
-	int quantity = 0;
-	
-	for(int i=0; i < size; i++){
-		quantity = quantity +items[i].quantity;
-	}
-	return quantity;
+ // TODO Auto-generated method stub
+ int quantity = 0;
+ 
+ for(int i=0; i < size; i++){
+  quantity = quantity +items[i].quantity;
+ }
+ return quantity;
 }
 
+
+// String, int -> boolean
+//Returns true if the item quantity is successfully deducted, else false
   @Override
   public boolean reduceQuantity(String itemName, int quantity) {
-	// TODO Auto-generated method stub
-	  int quant = 0;
-	  
-	for(int i = 0; i <this.size; i++){
-		if(items[i].name.equals(itemName)){
-			if((items[i].quantity-quantity)<1){
-				remove(items[i].name);
-				return true;
-			}
-		quant = items[i].quantity = items[i].quantity - quantity;
-		}
-	}
-	return false;
+   int quant = 0;
+   
+ for(int i = 0; i <this.size; i++){
+  if(items[i].name.equals(itemName)){
+   if((items[i].quantity-quantity)<1){
+    remove(items[i].name);
+    return true;
+   }
+  quant = items[i].quantity = items[i].quantity - quantity;
   }
-			
-			
+ }
+ return false;
+  }
+   
+   
 }
